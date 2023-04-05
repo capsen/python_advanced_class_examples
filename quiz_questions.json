@@ -1,0 +1,28 @@
+{
+    "questions": [
+      {
+        "description": "What is the capital of France?",
+        "options": ["London", "Paris", "Madrid", "Berlin"],
+        "correct_answer": "Paris",
+        "point": 1
+      },
+      {
+        "description": "What is the largest planet in our solar system?",
+        "options": ["Venus", "Jupiter", "Mars", "Saturn"],
+        "correct_answer": "Jupiter",
+        "point": 2
+      },
+      {
+        "description": "Which of these is not a programming language?",
+        "options": ["Python", "Java", "HTML", "C++"],
+        "correct_answer": "HTML",
+        "point": 1
+      },
+      {
+        "description": "Who directed the movie 'Jaws'?",
+        "options": ["Steven Spielberg", "Martin Scorsese", "Quentin Tarantino", "Alfred Hitchcock"],
+        "correct_answer": "Steven Spielberg",
+        "point": 3
+      }
+    ]
+  }
