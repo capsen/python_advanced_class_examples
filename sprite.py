@@ -1,4 +1,5 @@
 import pygame
+import pgzero
 from pgzhelper import *
 
 mod = sys.modules['__main__']
@@ -8,17 +9,17 @@ class Sprite(Actor):
         self.show=True
         self.message=""
         super().__init__(image, pos, anchor, **kwargs)
-    
+
     def draw(self):
-        if self.show:
-            super().draw()
-            if self.message:
-                self.draw_speak()
-    
+        super().draw()
+        if(self.message):
+            self.draw_speak()
+
     def draw_speak(self):
         position = self.topleft
-        messagebox_width = 100
-        messagebox_height = 70
+        padding = 7
+        messagebox_width = 80+20*(len(self.message)/15)
+        messagebox_height = 20+2*padding+8*int(len(self.message)/5)
         messagebox_x = position[0] + 5 + self.width
         messagebox_y = position[1] - 5 - messagebox_height
         left_radius = 0
@@ -34,6 +35,4 @@ class Sprite(Actor):
             
         pygame.draw.rect(mod.screen.surface, (48, 141, 70), pygame.Rect(messagebox_x, messagebox_y, messagebox_width, messagebox_height),  0, 0, 10, 10, left_radius, right_radius)
         pygame.draw.rect(mod.screen.surface, (255,0,0), pygame.Rect(messagebox_x, messagebox_y, messagebox_width, messagebox_height),  4, 0, 10, 10, left_radius, right_radius)
-        mod.screen.draw.textbox(self.message, (messagebox_x + 5, messagebox_y+5, messagebox_width-10, messagebox_height-10) )
-
-
+        mod.screen.draw.textbox(self.message, (messagebox_x + padding, messagebox_y+padding, messagebox_width-padding*2, messagebox_height-padding*2) )
