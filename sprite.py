@@ -29,10 +29,14 @@ class Sprite(Actor):
             messagebox_x = position[0] - 5 - messagebox_width
             left_radius=10
             right_radius=0
+            pygame.draw.polygon(mod.screen.surface,(255,0,0), ((messagebox_x + messagebox_width - 10, messagebox_y + messagebox_height),(messagebox_x  + messagebox_width + 10, messagebox_y + messagebox_height + 10), (messagebox_x + messagebox_width, messagebox_y + messagebox_height-10)))
+        else:
+            pygame.draw.polygon(mod.screen.surface,(255,0,0), ((messagebox_x, messagebox_y + messagebox_height-10),(messagebox_x - 10, messagebox_y + messagebox_height + 10), (messagebox_x+10, messagebox_y + messagebox_height)))
         
         if(position[1] - messagebox_height - 5 < 0):
           messagebox_y = 0 + 5 + messagebox_height
-            
+        
+        
         pygame.draw.rect(mod.screen.surface, (48, 141, 70), pygame.Rect(messagebox_x, messagebox_y, messagebox_width, messagebox_height),  0, 0, 10, 10, left_radius, right_radius)
         pygame.draw.rect(mod.screen.surface, (255,0,0), pygame.Rect(messagebox_x, messagebox_y, messagebox_width, messagebox_height),  4, 0, 10, 10, left_radius, right_radius)
         mod.screen.draw.textbox(self.message, (messagebox_x + padding, messagebox_y+padding, messagebox_width-padding*2, messagebox_height-padding*2) )
